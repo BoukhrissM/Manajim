@@ -23,12 +23,12 @@ const Hero = () => {
           <div className="h-screen container mx-auto">
             <Navbar />
             <Grid container className="text-white h-[90%]">
-              <Grid items xs={12} sm={12} md={6} lg={6} className="md:px-10 ">
+              <Grid item xs={12} sm={12} md={6} lg={6} className="md:px-10 ">
                 <div className="w-full h-full flex flex-col justify-center items-center">
                   <span className="w-full font-extrabold text-6xl uppercase montserrat">
                     Manajim Pro African mining
                   </span>
-                  <span className="montserrat">
+                  <span className="montserrat ">
                     société minière basée au Maroc. Depuis nos débuts en tant
                     que société minière, nous avons exécuté des projets
                     d'exploration dans plusieurs États, acquis plusieurs
@@ -48,7 +48,7 @@ const Hero = () => {
                 </div>
               </Grid>
               <Grid
-                items
+                item
                 xs={12}
                 sm={12}
                 md={6}
@@ -56,6 +56,7 @@ const Hero = () => {
                 className="px-10 flex flex-col justify-center items-center"
               >
                 <Image
+                  height={400}
                   src={logo}
                   alt="manajim"
                   preview={false}

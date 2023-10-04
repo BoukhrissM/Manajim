@@ -8,18 +8,26 @@ const glassmorphism =
 
 export const Navbar = () => {
   const [scroll0, setScrol0] = useState(window.scrollY < 10);
+  const [isMobile, setMobile] = useState(window.innerWidth < 900);
   useEffect(() => {
     document.addEventListener("scroll", () => {
       setScrol0(window.scrollY < 10);
     });
+    window.addEventListener("resize", () => {
+      setMobile(window.innerWidth < 900);
+    });
   }, []);
   return (
     <div className="flex justify-center items-center sticky top-0">
-      <Grid container spacing={2} className={`${!scroll0?glassmorphism:""}`}>
+      <Grid
+        container
+        spacing={2}
+        className={`${!scroll0 ? glassmorphism : ""}`}
+      >
         <Grid
           item
-          xs={12}
-          sm={12}
+          xs={6}
+          sm={6}
           md={6}
           lg={6}
           className=" flex justify-startitems-center"
@@ -28,24 +36,30 @@ export const Navbar = () => {
         </Grid>
         <Grid
           item
-          xs={12}
-          sm={12}
+          xs={6}
+          sm={6}
           md={6}
           lg={6}
-          className="flex flex-col justify-end px-2 items-center text-white"
+          className="flex flex-col justify-end px-9 items-center text-white"
         >
-          <a href="#" className="px-2">
-            Accueil
-          </a>
-          <a href="#" className="px-2">
-            Services
-          </a>
-          <a href="#" className="px-2">
-            Nous
-          </a>
-          <a href="#" className="px-2">
-            Contact
-          </a>
+          {!isMobile ? (
+            <>
+              <a href="#" className="px-2">
+                Accueil
+              </a>
+              <a href="#" className="px-2">
+                Services
+              </a>
+              <a href="#" className="px-2">
+                Nous
+              </a>
+              <a href="#" className="px-2">
+                Contact
+              </a>
+            </>
+          ) : (
+            "Hamburger"
+          )}
         </Grid>
       </Grid>
     </div>
